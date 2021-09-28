@@ -1,10 +1,3 @@
-# Print list
-def printList(mylist):
-    listing = ""
-    for index in range(len(mylist)):
-        listing = listing + str(mylist[index]) + " "
-    print(listing)
-
 # Rounding
 def rounding(note):
     temp = note
@@ -32,11 +25,10 @@ def failedOrNot(notes):
 
 # Test
 notes = list()
-notes = [40, 23, 57, 92, 100, 46]
-print("Original List : ")
-printList(notes)
+notes = [40, 23, 57, 92, 96, 45]
+
+print("Original List : ", notes)
 
 notes = failedOrNot(notes)
 
-print("New list after rounding : ")
-printList(notes)
+print("New list after rounding : ", notes)
