@@ -5,7 +5,6 @@ def printList(mylist):
         listing = listing + str(mylist[index]) + " "
     print(listing)
 
-
 # Rounding
 def rounding(note):
     temp = note

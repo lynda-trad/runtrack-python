@@ -20,4 +20,5 @@ def draw_triangle(height):
 
 
 # Test
-print(draw_triangle(5))
+height = int(input("Entrez un nombre"))
+print(draw_triangle(height))
