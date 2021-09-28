@@ -9,3 +9,4 @@ len = 4
 
 # Sorting
 def sorting(list):
+    for it in range(0,5):
