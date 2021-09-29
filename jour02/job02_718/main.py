@@ -16,20 +16,22 @@ class Personne:
         self.nom = nom
 
     def sepresenter(self):
-        print(self.prenom, self.nom)
+        print("Auteur : ", self.prenom, self.nom)
 
 
 class Auteur(Personne):
-    def __init__(self, prenom, nom, oeuvre):
+    def __init__(self, prenom, nom):
         super().__init__(prenom, nom)
-        self.oeuvre = oeuvre
+        self.oeuvre = []
 
     # Liste les oeuvres
     def listerOeuvre(self):
-        print(self.oeuvre)
+        print("Oeuvres de l'auteur : ")
+        for it in range(len(self.oeuvre)):
+            self.oeuvre[it].printL()
 
-    def ecrireUnLivre(self, titre, auteur):
-        new = Livre.__init__(titre, auteur)
+    def ecrireUnLivre(self, titre):
+        new = Livre(titre, self)
         self.oeuvre.append(new)
 
 
@@ -38,17 +40,16 @@ class Livre:
         self.titre = titre
         self.auteur = auteur
 
-    def print(self):
-        print(self.titre, "par ", self.auteur.sepresenter())
+    def printL(self):
+        print("~", self.titre, "par", self.auteur.prenom, self.auteur.nom)
 
 
 # Test class Auteur
-A1 = Auteur("Jeff", "Vandermeer", {"Annihilation", "Autorité"})
+A1 = Auteur("Jeff", "Vandermeer")
 A1.sepresenter()
 A1.listerOeuvre()
+print("\n")
 
-# Test class Livre
-A1.ecrireUnLivre("Acceptation", A1)
-
+#Apres ajout des livres
+A1.ecrireUnLivre("Annihilation")
 A1.listerOeuvre()
-
