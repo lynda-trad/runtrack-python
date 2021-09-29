@@ -76,10 +76,14 @@ class Bibliotheque:
 
     def acheterLivre(self, auteur, nom, quantite):
         if auteur.estDansLoeuvre(nom):
-            if nom in self.collection:
-                self.collection[nom] += quantite
-            else:
-                self.collection[nom] = quantite
+            for livre in self.collection:
+                if livre.getTitre == nom:
+                    self.collection[nom] += quantite
+                #else:
+                    # on cree le livre
+                    #self.collection[nom] = quantite
+        else:
+            print("Cet auteur n'a pas ecrit ce livre.")
 
     def inventaire(self):
         print("La bibliotheque répertorie :")
