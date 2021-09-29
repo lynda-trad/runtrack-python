@@ -34,11 +34,20 @@ class Auteur(Personne):
         new = Livre(titre, self)
         self.oeuvre.append(new)
 
+    def estDansLoeuvre(self, nom):
+        for livre in self.oeuvre:
+            if livre.getTitre() == nom:
+                return True
+        return False
+
 
 class Livre:
     def __init__(self, titre, auteur):
         self.titre = titre
         self.auteur = auteur
+
+    def getTitre(self):
+        return self.titre
 
     def printL(self):
         print("~", self.titre, "par", self.auteur.prenom, self.auteur.nom)
@@ -73,7 +82,11 @@ class Bibliotheque:
                 self.collection[nom] = quantite
 
     def inventaire(self):
-        print("La bibliotheque répertorie les livres :", self.collection)
+        print("La bibliotheque répertorie les livres :")
+        for livre in self.collection:
+            print(self.collection[livre],"exemplaires de :")
+            livre.printL()
+
 
     def louer(self, client, nom):
         # Look for the book
@@ -103,13 +116,10 @@ A1.ecrireUnLivre("Autorité")
 A1.ecrireUnLivre("Acceptation")
 A1.listerOeuvre()
 
-if "Acceptation" in A1.oeuvre:
-    print("Acceptation est bien une oeuvre de ", A1.nom, "\n")
-
 # Creation de bibliotheque
 collection = {
-    "Annihilation": 2,
-    "Autorité": 4,
+    A1.oeuvre[0]: 2,    #Annihilation
+    A1.oeuvre[1]: 4,    #Autorité
 }
 bibliotheque = Bibliotheque("Joliette", collection)
 bibliotheque.inventaire()
@@ -120,6 +130,10 @@ print("Ajout du livre Acceptation en 3 exemplaires à la bibliothèque")
 bibliotheque.inventaire()
 
 # Creation de client
+
+A2 = Auteur("JRR", "Tolkien")
+A2.ecrireUnLivre("Lord of The Rings")
+print("\n")
 C1 = Client("Gilles", "Valentine")
 C1.ajoutLivre("Lord of the Rings")
 C1.inventaire()
