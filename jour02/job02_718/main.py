@@ -27,8 +27,8 @@ class Auteur(Personne):
     # Liste les oeuvres
     def listerOeuvre(self):
         print("Oeuvres de l'auteur : ")
-        for it in range(len(self.oeuvre)):
-            self.oeuvre[it].printL()
+        for livre in self.oeuvre:
+            livre.printL()
 
     def ecrireUnLivre(self, titre):
         new = Livre(titre, self)
