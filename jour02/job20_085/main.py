@@ -1,8 +1,3 @@
-# Dimensions ixj
-
-# Player Yellow J
-# Player Rouge  R
-
 class Board:
     def __init__(self, i, j):
         self.grille = [['O' for h in range(i)] for w in range(j)]
@@ -27,7 +22,7 @@ class Board:
         while height != 0:
             print("dans le while")
             if self.grille[height][column] == '0':
-                print(" Height : ", height,"Column: ", column, "\n")
+                print(" Height : ", height, "Column: ", column, "\n")
                 self.grille[height][column] == c
                 height = 0
             height -= 1
