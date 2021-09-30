@@ -72,7 +72,7 @@ if exists(filename):
         count = text.count(lowercase[i]) + text.count(uppercase[i])
         letters[lowercase[i]] = count
 
-    print("Avant la mise en pourcentages: \n", letters)
+    print("Avant la mise en pourcentage: \n", letters)
 else:
     print("File does not exist.")
 
@@ -81,7 +81,7 @@ total = sum(letters.values())
 for letter in letters:
     letters[letter] = float(letters[letter]) / total * 100
 
-print("Apres la mise en pourcentages: \n", letters)
+print("Apres la mise en pourcentage: \n", letters)
 
 # Hist creation
 fig, ax = plt.subplots()
