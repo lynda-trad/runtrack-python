@@ -1,10 +1,9 @@
 from os.path import exists
 
-if not exists("output.txt"):
-    file = open("output.txt", "x")
-    file.write(input("Entrez une chaine de caractères "))
-    test = file.read()
-    print(test)
+if exists("output.txt"):
+    file = open("output.txt")
+    print(file.read())
     file.close()
 else:
-    print("File already exists.")
+    print("File does not exist.")
+

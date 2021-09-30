@@ -9,3 +9,4 @@ else:
 
 file = open("output.txt")
 print(file.read())
+file.close()
