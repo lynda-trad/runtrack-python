@@ -1,8 +1,10 @@
 from os.path import exists
-import re
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 filename = 'data.txt'
-count = { #lowercase
+letters = { #lowercase
          'a': 0,
          'b': 0,
          'c': 0,
@@ -65,8 +67,18 @@ if exists(filename):
     words = text.split()
     for word in words:
         for letter in word:
-            if letter in count:
-                count[letter] += 1
-    print(count)
+            if letter in letters:
+                letters[letter] += 1
+    print(letters)
 else:
     print("File does not exist.")
+
+fig, ax = plt.subplots()
+
+count = list(letters.keys())
+letter = list(letters.values())
+
+plt.bar(range(len(letters)), letter, tick_label=count)
+plt.grid()
+plt.show()
+
