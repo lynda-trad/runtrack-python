@@ -19,7 +19,17 @@ if exists(filename):
 else:
     print("File does not exist.")
 
-print(length)
+print("Avant la mise en pourcentage: \n", length)
+
+# Percentage
+total = sum(length.values())
+
+print(total)
+
+for le in length:
+    length[le] = float(length[le]) / total * 100
+
+print("Apres la mise en pourcentage: \n", length)
 
 fig, ax = plt.subplots()
 
