@@ -26,7 +26,6 @@ fig, ax = plt.subplots()
 count = list(length.keys())
 longueur = list(length.values())
 
-plt.bar(range(len(length)), longueur, tick_label=count)
+plt.bar(length.keys(), longueur, tick_label=count)
 plt.grid()
 plt.show()
-
