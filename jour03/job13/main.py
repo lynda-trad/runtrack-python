@@ -70,24 +70,32 @@ if exists(filename):
     words = text.split()
     for word in words:
         for i in lowercase:
-            if word[0] == lowercase[i]:
-                letters[lowercase[i]] += 1
+            if word[0] == i:
+                lowercase[i] += 1
 
         for i in uppercase:
-            if word[0] == uppercase[i]:
-                letters[uppercase[i]] += 1
+            if word[0] == i:
+                uppercase[i] += 1
 
-    print(letters)
-
-    # compte it de lower + it de up = letter
     for i in range(25):
-        letters.append(lowercase[i] + uppercase[i])
-
-    print(letters)
+        letters.append(float(lowercase[i]) + float(uppercase[i]))
 
 else:
     print("File does not exist.")
 
+#Percentage
+print("Avant la mise en pourcentage: \n", letters)
+
+total = sum(letters.values())
+
+print(total)
+
+for le in letters:
+    letters[le] = float(letters[le]) / total * 100
+
+print("Apres la mise en pourcentage: \n", letters)
+
+# Hist creation
 fig, ax = plt.subplots()
 
 count = list(letters.keys())
