@@ -2,10 +2,7 @@ import numpy as np
 
 n = int(input("Entrez un nombre pour la taille : n x n\n"))
 plateau = np.tile('O', (n, n))
-print(plateau)
-print("\n")
-plateau[0][1] = 'X'
-print(plateau)
+print(plateau, "\n")
 ini = 0
 
 
@@ -13,7 +10,9 @@ def game(n, init):
     if init == 0:
         x = 0
         y = 0
+        plateau[x][y] = 'X'
         init = 1
+        print(plateau, "\n")
     if n % 2 == 0 or (n % 3 == 0 and n >= 3):
         while y != n:
             if x + 2 <= n and y + 1 <= n:
