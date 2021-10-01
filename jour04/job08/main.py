@@ -7,14 +7,17 @@ ini = 0
 
 
 def game(n, init):
+    pions = n
+
     if init == 0:
         x = 0
         y = 0
         plateau[x][y] = 'X'
         init = 1
+
+    if n % 2 == 0 and n > 3:
         print(plateau, "\n")
-    if n % 2 == 0 or (n % 3 == 0 and n >= 3):
-        while y != n:
+        while y != n and pions != 0:
             if x + 2 <= n and y + 1 <= n:
                 plateau[x + 2][y + 1] = 'X'
                 x += 1
@@ -24,6 +27,7 @@ def game(n, init):
                 x = 0
             else:
                 return True
+        return True
     else:
         print("Impossible de placer les dames sur un plateau", n, "x", n)
         return False
